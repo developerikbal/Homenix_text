@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   flutter_dotenv: ^5.1.0
   http: ^1.1.0
+  syncfusion_flutter_pdf: ^30.1.37
 
   # Core UI & Design
   cupertino_icons: ^1.0.6
@@ -46,7 +47,7 @@ dependencies:
   path: ^1.9.0
 
   # OCR, PDF, and Voice
-  pdf_text: ^0.5.0
+  pdfx: ^2.9.2
   tesseract_ocr: ^0.5.0
   speech_to_text: ^6.6.0
 
