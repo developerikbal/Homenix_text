@@ -10,7 +10,11 @@ dependencies:
   flutter_dotenv: ^5.1.0
   flutter:
     sdk: flutter
-
+    http:^1.1.0
+    
+dependency_overrides:
+  http: ^1.1.0
+  
   # Core UI & Design
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
@@ -45,7 +49,7 @@ dependencies:
   path: ^1.9.0
 
   # OCR, PDF, and Voice
-  pdf_text: ^0.4.2
+  pdf_text: ^0.5.0
   tesseract_ocr: ^0.5.0
   speech_to_text: ^6.6.0
 
