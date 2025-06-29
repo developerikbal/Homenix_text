@@ -13,7 +13,7 @@ dependencies:
 
   # Core UI & Design
   cupertino_icons: ^1.0.6
-  google_fonts: ^6.2.0
+  google_fonts: ^4.0.3
   flutter_svg: ^2.0.10
   flutter_screenutil: ^5.9.0
   responsive_builder: ^0.7.0
