@@ -45,7 +45,7 @@ dependencies:
   path: ^1.9.0
 
   # OCR, PDF, and Voice
-  pdf_text: ^0.5.0
+  pdf_text: ^0.4.2
   tesseract_ocr: ^0.5.0
   speech_to_text: ^6.6.0
 
@@ -64,7 +64,7 @@ dependencies:
   url_launcher: ^6.2.5
   fluttertoast: ^8.2.5
   uuid: ^4.2.2
-  lottie: ^3.3.1
+  lottie: ^3.1.0
 
   flutter_localizations:
     sdk: flutter
