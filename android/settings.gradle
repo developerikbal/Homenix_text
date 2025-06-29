@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// প্রকল্পের নাম ঠিক রাখুন
+rootProject.name = 'homeonix'
+
+// শুধুমাত্র Flutter অ্যাপ থাকলে ':app' থাকাই যথেষ্ট
+include ':app'

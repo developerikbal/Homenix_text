@@ -1,0 +1,127 @@
+name: homeonix
+description: A complete AI-powered Homeopathic diagnostic app with Bengali & English support.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter_dotenv: ^5.1.0
+  flutter:
+    sdk: flutter
+
+  # Core UI & Design
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.2.0
+  flutter_svg: ^2.0.10
+  flutter_screenutil: ^5.9.0
+  responsive_builder: ^0.7.0
+
+  # State Management & Routing
+  get: ^4.6.6
+  provider: ^6.1.2
+
+  # Firebase Core & Services
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.19.3
+  cloud_firestore: ^4.16.1
+  firebase_storage: ^11.7.1
+  firebase_messaging: ^14.7.10
+  firebase_analytics: ^10.8.2
+
+  # Notifications
+  flutter_local_notifications: ^17.1.2
+
+  # Payment
+  in_app_purchase: ^3.1.11
+  intl: ^0.18.1
+
+  # File & Media Handling
+  image_picker: ^1.1.2
+  file_picker: ^6.2.1
+  flutter_image_compress: ^2.1.0
+  path_provider: ^2.1.2
+  path: ^1.9.0
+
+  # OCR, PDF, and Voice
+  pdf_text: ^1.0.0
+  tesseract_ocr: ^0.3.2
+  speech_to_text: ^6.6.0
+
+  # QR & Scanner
+  mobile_scanner: ^3.5.1
+  qr_code_scanner: ^1.0.1
+  permission_handler: ^11.3.1
+
+  # Storage & Preferences
+  get_storage: ^2.1.1
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.0.0
+  connectivity_plus: ^5.0.0
+
+  # Utility
+  url_launcher: ^6.2.5
+  fluttertoast: ^8.2.5
+  uuid: ^4.2.2
+  lottie: ^3.1.0
+
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+    - assets/books/raw_pdf/
+    - assets/books/translated_json/
+    - assets/localization/
+    - assets/data/rubrics.json
+    - assets/books/translated_json/remedies.json
+    - assets/books/translated_json/rubric_map.json
+    - assets/images/developer.jpg
+    - assets/images/developer_photo.png
+    - assets/animations/remedy_success.json
+    - assets/animations/empty_result.json
+    - assets/animations/splash_loading.json
+    - assets/images/onboard3.png
+    - assets/onboarding/onboard1.json
+    - assets/onboarding/onboard2.json
+    - assets/onboarding/onboard3.json
+    - assets/images/onboarding1.png
+    - assets/images/onboarding2.png
+    - assets/images/onboarding3.png
+    - assets/images/onboarding/
+    - assets/onboarding/
+    - assets/animations/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: Kalpurush
+      fonts:
+        - asset: assets/fonts/Kalpurush.ttf
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Regular.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Bold.ttf
+        - asset: assets/fonts/Nunito-Italic.ttf
+        - asset: assets/fonts/Nunito-SemiBold.ttf

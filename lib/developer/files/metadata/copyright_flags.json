@@ -1,0 +1,31 @@
+{
+  "auto_detect": true,
+  "ocr_scan_enabled": true,
+  "translation_required": true,
+  "flag_on_raw_pdf": true,
+  "flag_on_translated_content": false,
+  "developer_only_access": true,
+  "allow_public_reference": false,
+  "license_check_required": true,
+  "upload_tracking": {
+    "enabled": true,
+    "track_uploaded_by": true,
+    "track_upload_date": true
+  },
+  "copyright_violation_flags": [
+    {
+      "condition": "contains_publisher_watermark",
+      "action": "restrict_public_use"
+    },
+    {
+      "condition": "contains_author_signature",
+      "action": "notify_developer"
+    },
+    {
+      "condition": "has_external_url_reference",
+      "action": "strip_and_log"
+    }
+  ],
+  "default_action_on_violation": "restrict_internal_use_only",
+  "developer_email": "frontendwebdeveloperikbal@gmail.com"
+}

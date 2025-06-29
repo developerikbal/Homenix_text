@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "483774471149",
+    "project_id": "homeonix-8a766",
+    "storage_bucket": "homeonix-8a766.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483774471149:android:2a3f2a535aec42371365e4",
+        "android_client_info": {
+          "package_name": "com.homeonix.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDaOCnS5xyx5q6c6P5YzG373Zn8Q_pXGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

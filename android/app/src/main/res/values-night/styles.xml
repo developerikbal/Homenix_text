@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ✅ Dark mode theme for the application -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Dark mode theme colors -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Background and text for dark mode -->
+        <item name="android:windowBackground">@color/colorBackgroundDark</item>
+        <item name="android:textColor">@color/textPrimaryDark</item>
+
+        <!-- Status and navigation bar for dark theme -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+    </style>
+
+</resources>

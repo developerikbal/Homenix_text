@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Find Remedies Fast",
+    "subtitle": "Enter your symptoms in Bengali or English and get accurate homeopathic remedies.",
+    "image": "assets/images/onboarding/search_remedy.png"
+  },
+  {
+    "title": "Upload Books or Images",
+    "subtitle": "Scan books or upload images. System will auto-analyze and add symptoms.",
+    "image": "assets/images/onboarding/upload_books.png"
+  },
+  {
+    "title": "Developer Control Panel",
+    "subtitle": "Manage book integration, real-time updates, PDF/JSON processing and secure tools.",
+    "image": "assets/images/onboarding/developer_panel.png"
+  },
+  {
+    "title": "Security and Subscription",
+    "subtitle": "Access via verified email only. Premium plans: Monthly, Yearly, Lifetime available.",
+    "image": "assets/images/onboarding/subscription.png"
+  }
+]

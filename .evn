@@ -1,0 +1,23 @@
+# Firebase Config
+API_KEY=your_firebase_api_key
+APP_ID=your_app_id
+MESSAGING_SENDER_ID=your_sender_id
+PROJECT_ID=your_project_id
+STORAGE_BUCKET=your_storage_bucket
+
+# App Settings
+APP_NAME=Homeonix
+DEFAULT_LANGUAGE=en
+TRIAL_DAYS=30
+VERSION=1.0.0
+
+# Payment Gateway (for future use)
+PAYMENT_API_KEY=your_payment_gateway_key
+PAYMENT_SECRET=your_payment_secret
+
+# Developer Access
+DEV_GMAIL=frontendwebdeveloperikbal@gmail.com
+
+# Other Settings
+ENABLE_LOGGING=true
+SECURE_MODE=true

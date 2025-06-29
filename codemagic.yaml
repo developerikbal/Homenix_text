@@ -1,0 +1,37 @@
+workflows:
+  homeonix-android-workflow:
+    name: Homeonix Android Build
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      vars:
+        FIREBASE_ANDROID_APP_ID: your_app_id_from_firebase # optional, for deploy
+      groups:
+        - keystore_credentials
+        - firebase_credentials
+      flutter_version: stable
+      android_signing:
+        keystore_reference: Homeonix_keystore
+    scripts:
+      - name: Set up Flutter environment
+        script: |
+          flutter pub get
+
+      - name: Build APK (release)
+        script: |
+          flutter build apk --release
+
+      - name: Optional - Run Tests
+        script: |
+          flutter test
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+
+    publishing:
+      firebase:
+        firebase_token: $FIREBASE_TOKEN
+        android:
+          app_id: $FIREBASE_ANDROID_APP_ID
+          groups:
+            - testers

@@ -1,0 +1,11 @@
+{
+  "title": "Welcome to Homeonix",
+  "subtitle": "Smart Homeopathy Software to Find the Most Suitable Remedy",
+  "description": "Analyze symptoms, compare remedies, explore trusted Materia Medica, and get accurate suggestions.",
+  "image": "assets/images/onboarding/onboard1.png",
+  "button_text": "Next",
+  "background_color": "#FFFFFF",
+  "text_color": "#000000",
+  "skip_enabled": true,
+  "show_indicator": true
+}

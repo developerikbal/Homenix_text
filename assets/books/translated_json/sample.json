@@ -1,0 +1,55 @@
+{
+  "book_title": "Keynotes of the Homoeopathic Materia Medica",
+  "author": "Adolph von Lippe",
+  "language": "bn", // বাংলা অনুবাদ
+  "sections": [
+    {
+      "chapter": "মন (Mind)", // Mind chapter
+      "symptoms": [
+        {
+          "rubric": "আত্মবিশ্বাসের অভাব", // symptom description
+          "remedies": [
+            {
+              "name": "Silicea",
+              "grade": 3,
+              "marks": ["Keynote", "Chronic"]
+            },
+            {
+              "name": "Lycopodium",
+              "grade": 2,
+              "marks": ["Marked"]
+            }
+          ],
+          "source_page": 12
+        },
+        {
+          "rubric": "দুঃখে চুপচাপ হয়ে থাকা",
+          "remedies": [
+            {
+              "name": "Ignatia",
+              "grade": 3,
+              "marks": ["Acute", "Emotional"]
+            }
+          ],
+          "source_page": 14
+        }
+      ]
+    },
+    {
+      "chapter": "শরীর (Physical)",
+      "symptoms": [
+        {
+          "rubric": "পেট ফাঁপা",
+          "remedies": [
+            {
+              "name": "Carbo Veg",
+              "grade": 2,
+              "marks": ["Gas", "Weakness"]
+            }
+          ],
+          "source_page": 31
+        }
+      ]
+    }
+  ]
+}
