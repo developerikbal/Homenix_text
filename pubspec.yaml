@@ -4,7 +4,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ">=3.6.0 <4.0.0"
 
 dependencies:
   flutter_dotenv: ^5.1.0
@@ -13,7 +13,7 @@ dependencies:
 
   # Core UI & Design
   cupertino_icons: ^1.0.6
-  google_fonts: ^4.0.3
+  google_fonts: ^6.2.1
   flutter_svg: ^2.0.10
   flutter_screenutil: ^5.9.0
   responsive_builder: ^0.7.0
