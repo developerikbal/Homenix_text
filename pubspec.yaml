@@ -35,7 +35,7 @@ dependencies:
 
   # Payment
   in_app_purchase: ^3.1.11
-  intl: ^0.19.0
+  intl: ^0.20.0
 
   # File & Media Handling
   image_picker: ^1.1.2
