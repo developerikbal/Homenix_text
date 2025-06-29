@@ -51,15 +51,4 @@ Ensure the following before deploying:
 - ✅ `pubspec.yaml` contains all dependencies
 - ✅ Android & Windows build tested with no Gradle errors
 - ✅ Premium validation logic & trial blocker are working
-- ✅ GitHub repo does not contain sensitive credentials
-
----
-
-## 🙋‍♂️ Developer Contact
-
-**Ikbal Hussain Barbhuiya**  
-Flutter Developer & Homeopathic Practitioner  
-📍 Hailakandi, Assam  
-📧 frontendwebdeveloperikbal@gmail.com  
-📱 WhatsApp: +91 86387 99119  
-🌐 Feedback Form: [Click Here](https://forms.gle/your-feedback-form)
+- ✅ GitHub repo does not contain sensitive credential 
