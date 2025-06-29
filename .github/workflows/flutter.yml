@@ -11,12 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout source
+        uses: actions/checkout@v3
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.1'  # অথবা যেকোনো working stable version
+          flutter-version: '3.22.1'
+
+      - name: Check Flutter version
+        run: flutter --version
+
+      - name: Clean Flutter Pub Cache
+        run: flutter pub cache repair || true
 
       - name: Install dependencies
         run: flutter pub get
@@ -30,5 +37,5 @@ jobs:
       - name: Run tests
         run: flutter test
 
-      - name: Build Android APK
+      - name: Build APK (Release)
         run: flutter build apk --release
