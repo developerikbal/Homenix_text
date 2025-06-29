@@ -1,7 +1,7 @@
 <<<<<<< HEAD
-# 🏥 Homeonix – AI Powered Homeopathic---
+# 🏥 Homeonix – AI Powered Homeopathic
 
-## ✨ বৈশিষ্ট্য (Features)
+## বৈশিষ্ট্য (Features)
 
 - ✅ English & Bengali symptom text input
 - ✅ AI-based remedy suggestion (Graph, Compare, Grade)
@@ -25,5 +25,4 @@
 flutter pub get
 flutter run
 =======
-# Homenix_text
->>>>>>> 606d00420a5c188a4e184246bc4fc1409f3c79fe
+>>>>>>>
