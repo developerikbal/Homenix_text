@@ -45,7 +45,7 @@ dependencies:
   path: ^1.9.0
 
   # OCR, PDF, and Voice
-  pdf_text: ^1.0.0
+  pdf_text: ^0.5.0
   tesseract_ocr: ^0.5.0
   speech_to_text: ^6.6.0
 
