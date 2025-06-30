@@ -4,9 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'config/firebase_options.dart';
-import 'core/app_routes.dart'; // Ensure it exports a List<GetPage>
-import 'core/themes.dart'; // Define AppThemes class with lightTheme & darkTheme
-import 'language/app_localization.dart'; // Define AppLocalization extending Translations
+import 'core/app_routes.dart';
+import 'core/themes.dart';
+import 'language/app_localization.dart';
 import 'services/auth_service.dart';
 import 'controllers/language_controller.dart';
 
@@ -15,20 +15,20 @@ class HomeonixApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LanguageController langController = Get.find<LanguageController>();
+    final languageController = Get.put(LanguageController());
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Homeonix',
-      translations: AppLocalization(),
-      locale: langController.currentLocale.value, // Use `.value` to extract Locale from Rx<Locale>
+      locale: languageController.currentLocale,
       fallbackLocale: const Locale('en', 'US'),
       theme: AppThemes.lightTheme,
       darkTheme: AppThemes.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: AppRoutes.initialRoute,
-      getPages: AppRoutes.pages,
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
       localizationsDelegates: const [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -43,11 +43,8 @@ class HomeonixApp extends StatelessWidget {
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // Inject essential services before running app
   Get.put(AuthService());
   Get.put(LanguageController());
 
