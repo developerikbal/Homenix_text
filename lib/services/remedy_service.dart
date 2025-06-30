@@ -1,33 +1,31 @@
-// lib/services/remedy_service.dart
-
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:homeonix/models/remedy_model.dart';
+import '../models/remedy_model.dart';
 
 /// RemedyService - Responsible for loading and analyzing remedy data.
 class RemedyService {
-  List<RemedyModel> _remedies = [];
+  static List<RemedyModel> _remedies = [];
 
-  /// Loads remedy data from a local JSON file.
-  Future<void> loadRemedies() async {
+  /// Load data from local JSON
+  static Future<void> loadRemedies() async {
     final String jsonString = await rootBundle.loadString('assets/books/translated_json/remedies.json');
     final List<dynamic> jsonData = json.decode(jsonString);
     _remedies = jsonData.map((json) => RemedyModel.fromJson(json)).toList();
   }
 
-  /// Returns all remedies
-  List<RemedyModel> getAllRemedies() => _remedies;
+  /// Return all remedies
+  static List<RemedyModel> getAllRemedies() => _remedies;
 
-  /// Searches for remedies that match a given symptom
-  List<RemedyModel> searchBySymptoms(String inputSymptom) {
+  /// Search by input symptom
+  static List<RemedyModel> searchBySymptoms(String inputSymptom) {
     final lowerInput = inputSymptom.toLowerCase();
     return _remedies.where((remedy) {
       return remedy.symptoms.any((symptom) => symptom.toLowerCase().contains(lowerInput));
     }).toList();
   }
 
-  /// Returns remedy by ID
-  RemedyModel? getRemedyById(String id) {
+  /// Find by ID
+  static RemedyModel? getRemedyById(String id) {
     try {
       return _remedies.firstWhere((remedy) => remedy.id == id);
     } catch (e) {
@@ -35,8 +33,8 @@ class RemedyService {
     }
   }
 
-  /// Compares two remedies based on their symptoms
-  Map<String, dynamic> compareRemedies(String id1, String id2) {
+  /// Compare two remedies
+  static Map<String, dynamic> compareRemedies(String id1, String id2) {
     final r1 = getRemedyById(id1);
     final r2 = getRemedyById(id2);
 
@@ -53,5 +51,23 @@ class RemedyService {
       "only_in_${r1.id}": uniqueToR1,
       "only_in_${r2.id}": uniqueToR2,
     };
+  }
+
+  /// Developer Methods
+  static Future<void> addRemedy(RemedyModel remedy) async {
+    // Optional: implement write-back to Firebase or local DB
+    _remedies.add(remedy);
+  }
+
+  static Future<void> updateRemedy(RemedyModel remedy) async {
+    // Optional: update data source
+    final index = _remedies.indexWhere((r) => r.id == remedy.id);
+    if (index != -1) {
+      _remedies[index] = remedy;
+    }
+  }
+
+  static Future<void> deleteRemedy(String remedyId) async {
+    _remedies.removeWhere((r) => r.id == remedyId);
   }
 }
