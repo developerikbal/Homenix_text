@@ -12,66 +12,80 @@ class DeveloperController with ChangeNotifier {
   late UserModel _user;
   UserModel get user => _user;
 
-  // Set current user and check developer access
+  /// Set current user and check developer access
   void setUser(UserModel userModel) {
     _user = userModel;
     _checkIfDeveloper(userModel.email);
   }
 
-  // Verify if user is developer by email
+  /// Verify if user is developer by email
   void _checkIfDeveloper(String email) {
     const String devEmail = 'frontendwebdeveloperikbal@gmail.com';
     _isDeveloper = email.trim().toLowerCase() == devEmail.toLowerCase();
     notifyListeners();
   }
 
-  // Upload book (developer-only)
-  Future<void> uploadBook(File file) async {
+  /// Upload book file (PDF or image) - developer only
+  Future<void> uploadBook(File file, {String? fileName}) async {
     try {
-      await DeveloperService.uploadBook(file);
+      await DeveloperService.uploadBook(file, fileName: fileName);
+      await logDebug("Uploaded book: ${file.path}");
     } catch (e) {
+      await logDebug("Book upload failed: $e");
       rethrow;
     }
     notifyListeners();
   }
 
-  // Retrieve upload history
+  /// Retrieve list of uploaded book filenames
   Future<List<String>> getUploadHistory() async {
     try {
       return await DeveloperService.getUploadedBookHistory();
     } catch (e) {
+      await logDebug("Failed to fetch upload history: $e");
       return [];
     }
   }
 
-  // Save local log
+  /// Save debug message to local developer log
   Future<void> logDebug(String message) async {
     try {
       await DeveloperService.saveDebugLog(message);
-    } catch (_) {}
+    } catch (_) {
+      // Ignore logging errors
+    }
   }
 
-  // Delete all developer-uploaded files
+  /// Clear uploaded book files (developer only)
   Future<void> clearUploadedFiles() async {
     try {
       await DeveloperService.clearUploads();
-    } catch (_) {}
+      await logDebug("Cleared all uploaded files.");
+    } catch (e) {
+      await logDebug("Error clearing uploads: $e");
+    }
     notifyListeners();
   }
 
-  // Simulate unreleased feature (developer-only)
-  Future<void> runFeatureTest(String feature) async {
+  /// Run unreleased feature simulation for developer testing
+  Future<void> runFeatureTest(String featureName) async {
     try {
-      await DeveloperService.runSimulation(feature);
-    } catch (_) {}
+      await DeveloperService.runSimulation(featureName);
+      await logDebug("Feature test run: $featureName");
+    } catch (e) {
+      await logDebug("Feature simulation failed: $e");
+    }
     notifyListeners();
   }
 
-  // Update book metadata (title, author, tags, etc.)
+  /// Update metadata (title, tags etc.) for a book
   Future<void> updateBookMetadata(String bookId, Map<String, dynamic> metadata) async {
     try {
-      await DeveloperService.updateMetadata(bookId, metadata);
-    } catch (_) {}
+      final result = await DeveloperService.updateMetadata(bookId, metadata);
+      await logDebug("Metadata updated for $bookId: $result");
+    } catch (e) {
+      await logDebug("Metadata update failed for $bookId: $e");
+    }
     notifyListeners();
   }
 }
