@@ -1,54 +1,22 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// File: lib/language/app_localization.dart import 'dart:convert'; import 'package:flutter/material.dart'; import 'package:flutter/services.dart';
 
-/// Localization class for loading and fetching translated strings
-class AppLocalizations {
-  final Locale locale;
+class AppLocalizations { final Locale locale; AppLocalizations(this.locale);
 
-  AppLocalizations(this.locale);
+static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+static AppLocalizations of(BuildContext context) { return Localizations.of<AppLocalizations>(context, AppLocalizations)!; }
 
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
-  }
+late Map<String, String> _localizedStrings;
 
-  late Map<String, String> _localizedStrings;
+Future<bool> load() async { final jsonString = await rootBundle.loadString('assets/language/${locale.languageCode}.json'); final Map<String, dynamic> jsonMap = json.decode(jsonString); _localizedStrings = jsonMap.map((key, value) => MapEntry(key, value.toString())); return true; }
 
-  /// Load language file from assets/language/en.json or bn.json
-  Future<bool> load() async {
-    final jsonString = await rootBundle.loadString(
-      'assets/language/${locale.languageCode}.json',
-    );
-    final Map<String, dynamic> jsonMap = json.decode(jsonString);
+String translate(String key) { return _localizedStrings[key] ?? key; } }
 
-    _localizedStrings = jsonMap.map((key, value) => MapEntry(key, value.toString()));
-    return true;
-  }
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> { const _AppLocalizationsDelegate();
 
-  /// Fetch translation by key
-  String translate(String key) {
-    return _localizedStrings[key] ?? key;
-  }
-}
+@override bool isSupported(Locale locale) => ['en', 'bn'].contains(locale.languageCode);
 
-/// Custom delegate to load the localization during app startup
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+@override Future<AppLocalizations> load(Locale locale) async { final localization = AppLocalizations(locale); await localization.load(); return localization; }
 
-  @override
-  bool isSupported(Locale locale) {
-    return ['en', 'bn'].contains(locale.languageCode);
-  }
+@override bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) => false; }
 
-  @override
-  Future<AppLocalizations> load(Locale locale) async {
-    final localization = AppLocalizations(locale);
-    await localization.load();
-    return localization;
-  }
-
-  @override
-  bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) => false;
-}
