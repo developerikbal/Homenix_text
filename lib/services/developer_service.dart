@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
-/// Handles logging developer/system actions to a local file.
 class DeveloperLogger {
   static Future<File> _getLogFile() async {
     final dir = await getApplicationDocumentsDirectory();
@@ -36,7 +35,6 @@ class DeveloperLogger {
   }
 }
 
-/// Handles file upload (PDFs) by copying to internal developer directory.
 class DeveloperUploader {
   static Future<void> uploadPDF(File file) async {
     try {
@@ -56,7 +54,6 @@ class DeveloperUploader {
   }
 }
 
-/// Provides a list of previously uploaded developer files.
 class UploadHistoryService {
   static Future<List<String>> listUploadedFiles() async {
     final dir = await getApplicationDocumentsDirectory();
@@ -71,11 +68,21 @@ class UploadHistoryService {
   }
 }
 
-/// Verifies if the current user has developer access.
 class DeveloperAccessControl {
   static const allowedEmail = "frontendwebdeveloperikbal@gmail.com";
 
   static bool isDeveloper(String? userEmail) {
     return userEmail != null && userEmail == allowedEmail;
   }
+}
+
+/// NEW WRAPPER CLASS TO FIX ERROR:
+class DeveloperService {
+  static Future<void> log(String message) => DeveloperLogger.log(message);
+
+  static Future<void> uploadPDF(File file) => DeveloperUploader.uploadPDF(file);
+
+  static Future<List<String>> getUploadedFiles() => UploadHistoryService.listUploadedFiles();
+
+  static bool isDeveloper(String? email) => DeveloperAccessControl.isDeveloper(email);
 }
