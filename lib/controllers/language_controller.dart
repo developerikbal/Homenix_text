@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../language/language_provider.dart';
-import '../services/secure_storage.dart';
+import '../core/secure_storage.dart';
 
 class LanguageController extends GetxController {
   /// Reactive Locale object
