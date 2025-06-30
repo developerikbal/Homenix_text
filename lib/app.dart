@@ -11,6 +11,8 @@ import 'core/themes.dart';
 import 'language/app_localization.dart';
 import 'services/auth_service.dart';
 import 'controllers/language_controller.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // ensure this exists
+
 
 class HomeonixApp extends StatelessWidget {
   const HomeonixApp({super.key});
@@ -30,11 +32,11 @@ class HomeonixApp extends StatelessWidget {
           initialRoute: AppRoutes.splash,
           routes: AppRoutes.routes,
           localizationsDelegates: const [
-            AppLocalizations.delegate, // ✅ ঠিকঠাক cast হয়েছে
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
+  AppLocalizations.delegate, // সঠিক delegate
+  GlobalMaterialLocalizations.delegate,
+  GlobalWidgetsLocalizations.delegate,
+  GlobalCupertinoLocalizations.delegate,
+],
           supportedLocales: const [
             Locale('en', 'US'),
             Locale('bn', 'BD'),
