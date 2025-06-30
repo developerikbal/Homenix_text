@@ -1,5 +1,4 @@
-// lib/models/remedy_badge_types.dart
-
+//lib/constants/remedy_badge_types.dart
 import 'package:flutter/material.dart';
 
 enum RemedyBadgeType {
@@ -73,12 +72,6 @@ class RemedyBadge {
           type: type,
           label: 'Nosode',
           color: Colors.brown,
-        );
-      default:
-        return RemedyBadge(
-          type: type,
-          label: 'Unknown',
-          color: Colors.grey,
         );
     }
   }
