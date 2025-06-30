@@ -1,42 +1,26 @@
 import 'package:flutter/material.dart';
-
-// Auth Screens
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/register_screen.dart';
 import '../screens/auth/reset_password.dart';
 import '../screens/auth/splash_screen.dart';
 import '../screens/auth/trial_blocked_screen.dart';
-
-// Welcome
 import '../screens/common/welcome_screen.dart';
-
-// Home Screens
 import '../screens/home/home_screen.dart';
 import '../screens/home/patient_input_screen.dart';
 import '../screens/home/remedy_search_screen.dart';
-
-// Remedy Screens
 import '../screens/remedy/remedy_detail_screen.dart';
 import '../screens/remedy/remedy_compare_screen.dart';
 import '../screens/remedy/remedy_graph_screen.dart';
-
-// Book Screens
 import '../screens/book/book_list_screen.dart';
 import '../screens/book/book_detail_screen.dart';
-
-// Developer Screens
 import '../screens/developer/developer_panel.dart';
 import '../screens/developer/upload_book_screen.dart';
 import '../screens/developer/upload_image_screen.dart';
 import '../screens/developer/book_metadata_editor.dart';
 import '../screens/developer/book_translator_screen.dart';
-
-// Settings Screens
 import '../screens/settings/settings_screen.dart';
 import '../screens/settings/language_screen.dart';
 import '../screens/settings/darkmode_toggle.dart';
-
-// Common Screens
 import '../screens/common/unauthorized_screen.dart';
 import '../screens/common/not_found_screen.dart';
 
@@ -71,9 +55,8 @@ class AppRoutes {
 
   static const String unauthorized = '/unauthorized';
   static const String notFound = '/404';
-// app_routes.dart
-'/privacy-policy': (context) => const PrivacyPolicyScreen(),
-  static Map<String, WidgetBuilder> routes = {
+
+  static final Map<String, WidgetBuilder> routes = {
     splash: (_) => const SplashScreen(),
     welcome: (_) => const WelcomeScreen(),
     login: (_) => const LoginScreen(),
