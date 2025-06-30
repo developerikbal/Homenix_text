@@ -1,3 +1,5 @@
+// lib/app.dart
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,27 +19,27 @@ class HomeonixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final languageController = Get.put(LanguageController());
 
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Homeonix',
-      locale: languageController.currentLocale,
-      fallbackLocale: const Locale('en', 'US'),
-      theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
-      themeMode: ThemeMode.system,
-      initialRoute: AppRoutes.splash,
-      routes: AppRoutes.routes,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('bn', 'BD'),
-      ],
-    );
+    return Obx(() => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Homeonix',
+          locale: languageController.currentLocale.value, // ✅ .value যোগ
+          fallbackLocale: const Locale('en', 'US'),
+          theme: AppThemes.lightTheme,
+          darkTheme: AppThemes.darkTheme,
+          themeMode: ThemeMode.system,
+          initialRoute: AppRoutes.splash,
+          routes: AppRoutes.routes,
+          localizationsDelegates: const [
+            AppLocalizations.delegate, // ✅ ঠিকঠাক cast হয়েছে
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en', 'US'),
+            Locale('bn', 'BD'),
+          ],
+        ));
   }
 }
 
