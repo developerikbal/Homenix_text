@@ -17,7 +17,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'  # Dart 3.6.0+ supported
+          flutter-version: '3.19.0'  # Dart 3.6.0+
 
       - name: Enable Flutter stable channel and upgrade
         run: |
@@ -35,10 +35,10 @@ jobs:
 
       - name: Analyze code
         run: flutter analyze
-        
-- name: Disable explicit package dependencies
-  run: flutter config --no-enable-explicit-package-dependencies
-  
+
+      - name: Disable explicit package dependencies
+        run: flutter config --no-enable-explicit-package-dependencies
+
       - name: Accept Android Licenses
         run: yes | flutter doctor --android-licenses
 
