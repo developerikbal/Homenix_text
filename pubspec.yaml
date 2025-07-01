@@ -10,73 +10,43 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
-  uses-material-design: true
   http: ^1.1.0
   syncfusion_flutter_pdf: ^30.1.37
-  generate: true
-  localizations:
-    arb-dir: lib/l10n
-    template-arb-file: app_en.arb
-    output-localization-file: app_localizations.dart
-    supported-locales:
-      - en
-      - bn
-      
-  # Core UI & Design
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
   flutter_svg: ^2.0.10
   flutter_screenutil: ^5.9.0
   responsive_builder: ^0.7.0
-
-  # State Management & Routing
   get: ^4.6.6
   provider: ^6.1.2
-
-  # Firebase Core & Services
   firebase_core: ^2.30.0
   firebase_auth: ^4.19.3
   cloud_firestore: ^4.16.1
   firebase_storage: ^11.7.1
   firebase_messaging: ^14.7.10
   firebase_analytics: ^10.8.2
-
-  # Notifications
   flutter_local_notifications: ^17.1.2
-
-  # Payment
   in_app_purchase: ^3.1.11
   intl: ^0.20.0
-
-  # File & Media Handling
   image_picker: ^1.1.2
   file_picker: ^6.2.1
   flutter_image_compress: ^2.1.0
   path_provider: ^2.1.2
   path: ^1.9.0
-
-  # OCR, PDF, and Voice
   pdfx: ^2.6.0
   tesseract_ocr: ^0.5.0
   speech_to_text: ^6.6.0
-
-  # QR & Scanner
   mobile_scanner: ^3.5.1
   qr_code_scanner: ^1.0.1
   permission_handler: ^11.3.1
-
-  # Storage & Preferences
   get_storage: ^2.1.1
   shared_preferences: ^2.2.3
   flutter_secure_storage: ^9.0.0
   connectivity_plus: ^5.0.0
-
-  # Utility
   url_launcher: ^6.2.5
   fluttertoast: ^8.2.5
   uuid: ^4.2.2
   lottie: ^3.1.0
-
   flutter_localizations:
     sdk: flutter
 
@@ -85,7 +55,11 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
 
+dependency_overrides:
+  http: ^1.1.0
+
 flutter:
+  uses-material-design: true
   generate: true
   localizations:
     arb-dir: lib/l10n
@@ -94,9 +68,6 @@ flutter:
     supported-locales:
       - en
       - bn
-      
-dependency_overrides:
-  http: ^1.1.0
 
   assets:
     - assets/images/
