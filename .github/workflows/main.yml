@@ -35,9 +35,9 @@ jobs:
 
       - name: Build APK
         run: flutter build apk --release
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+- name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: homeonix-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
+      
