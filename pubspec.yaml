@@ -3,16 +3,6 @@ description: A complete AI-powered Homeopathic diagnostic app with Bengali & Eng
 publish_to: "none"
 version: 1.0.0+1
 
-flutter:
-  generate: true
-  localizations:
-    arb-dir: lib/l10n
-    template-arb-file: app_en.arb
-    output-localization-file: app_localizations.dart
-    supported-locales:
-      - en
-      - bn
-
 environment:
   sdk: ">=3.3.0 <4.0.0"
 
@@ -22,7 +12,15 @@ dependencies:
   flutter_dotenv: ^5.1.0
   http: ^1.1.0
   syncfusion_flutter_pdf: ^30.1.37
-
+  generate: true
+  localizations:
+    arb-dir: lib/l10n
+    template-arb-file: app_en.arb
+    output-localization-file: app_localizations.dart
+    supported-locales:
+      - en
+      - bn
+      
   # Core UI & Design
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
