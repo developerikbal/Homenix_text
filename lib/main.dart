@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart'; //  FirebaseAuth Import
 import 'package:firebase_messaging/firebase_messaging.dart'; //  Optional Messaging
 import 'package:provider/provider.dart';
-
 import 'config/firebase_options.dart';
 import 'theme/theme_manager.dart';
 import 'localization/app_localizations.dart';
