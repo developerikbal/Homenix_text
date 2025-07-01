@@ -1,6 +1,7 @@
 name: homeonix
 description: A complete AI-powered Homeopathic diagnostic app with Bengali & English support.
 publish_to: "none"
+
 version: 1.0.0+1
 
 environment:
@@ -10,17 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
-    sdk: flutter
-  
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_gen_runner: ^5.4.0
-  build_runner: ^2.4.6
-
-dependencies:
-  flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
   http: ^1.1.0
@@ -60,13 +50,13 @@ dependencies:
   fluttertoast: ^8.2.5
   uuid: ^4.2.2
   lottie: ^3.1.0
-  flutter_localizations:
-    sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_gen_runner: ^5.4.0
+  build_runner: ^2.4.6
 
 dependency_overrides:
   http: ^1.1.0
@@ -74,7 +64,6 @@ dependency_overrides:
 flutter:
   uses-material-design: true
   generate: true
-  
 
   assets:
     - assets/images/
