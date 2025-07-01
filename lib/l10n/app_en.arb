@@ -1,1 +1,7 @@
-
+{
+  "@@locale": "en",
+  "appTitle": "Homeonix",
+  "login": "Login",
+  "register": "Register",
+  "welcomeMessage": "Welcome to Homeonix!"
+}
