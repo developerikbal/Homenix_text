@@ -1,1 +1,23 @@
 
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    avoid_print: true
+    unnecessary_this: true
+    sort_child_properties_last: true
+    use_key_in_widget_constructors: true
+    avoid_unnecessary_containers: true
+    curly_braces_in_flow_control_structures: true
+    always_declare_return_types: true
+    annotate_overrides: true
+
+analyzer:
+  exclude:
+    - build/**
+    - lib/generated/**
+    - lib/**.g.dart
+    - lib/**.freezed.dart
+    - lib/firebase_options.dart
