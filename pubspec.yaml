@@ -60,14 +60,7 @@ dependency_overrides:
 
 flutter:
   uses-material-design: true
-  generate: true
-  localizations:
-    arb-dir: lib/l10n
-    template-arb-file: app_en.arb
-    output-localization-file: app_localizations.dart
-    supported-locales:
-      - en
-      - bn
+  
 
   assets:
     - assets/images/
