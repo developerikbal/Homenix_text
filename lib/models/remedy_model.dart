@@ -1,18 +1,26 @@
 // lib/models/remedy_model.dart
 
+import 'relationship_model.dart';
+
 /// RemedyModel: একটি হোমিওপ্যাথিক ঔষধের পূর্ণাঙ্গ তথ্য ধারণ করার মডেল ক্লাস
 
+enum RemedyBadgeType { acute, chronic, polychrest }
+
 class RemedyModel {
-  final String id; // রেমেডির ইউনিক আইডি
-  final String name; // রেমেডির নাম (যেমন: Nux Vomica)
-  final String potency; // শক্তি (যেমন: 30C)
-  final int grade; // গ্রেডিং (যেমন: 3)
-  final String keynote; // মূল উপস্থাপন বা সংক্ষিপ্ত উপসর্গ
-  final List<String> symptoms; // উপসর্গ তালিকা
-  final List<String>? complementary; // সহায়ক রেমেডিগুলি
-  final List<String>? inimical; // বিরোধী রেমেডিগুলি
-  final String? source; // কোন বই বা সূত্র থেকে
-  final DateTime createdAt; // কখন সংযোজন করা হয়েছে
+  final String id;
+  final String name;
+  final String potency;
+  final int grade;
+  final String keynote;
+  final List<String> symptoms;
+  final List<String>? complementary;
+  final List<String>? inimical;
+  final String? source;
+  final DateTime createdAt;
+  final RemedyBadgeType badgeType;
+
+  /// নতুন যুক্ত ফিল্ড
+  final List<RelationshipModel> relationships;
 
   RemedyModel({
     required this.id,
@@ -25,9 +33,10 @@ class RemedyModel {
     this.inimical,
     this.source,
     required this.createdAt,
+    required this.badgeType,
+    this.relationships = const [],
   });
-final RemedyBadgeType badgeType;
-  /// JSON ডেটা থেকে RemedyModel তৈরি করা
+
   factory RemedyModel.fromJson(Map<String, dynamic> json) {
     return RemedyModel(
       id: json['id'] ?? '',
@@ -44,22 +53,27 @@ final RemedyBadgeType badgeType;
           : null,
       source: json['source'],
       createdAt: DateTime.tryParse(json['createdAt'] ?? '') ?? DateTime.now(),
+      badgeType: _parseBadgeType(json['badgeType']),
+      relationships: (json['relationships'] as List<dynamic>?)
+              ?.map((e) => RelationshipModel.fromJson(e))
+              .toList() ??
+          [],
     );
   }
-class RemedyModel {
-  final String name;
-  final List<String> symptoms;
 
-  RemedyModel({required this.name, required this.symptoms});
-
-  factory RemedyModel.fromJson(Map<String, dynamic> json) {
-    return RemedyModel(
-      name: json['name'] ?? '',
-      symptoms: List<String>.from(json['symptoms'] ?? []),
-    );
+  static RemedyBadgeType _parseBadgeType(String? value) {
+    switch (value) {
+      case 'acute':
+        return RemedyBadgeType.acute;
+      case 'chronic':
+        return RemedyBadgeType.chronic;
+      case 'polychrest':
+        return RemedyBadgeType.polychrest;
+      default:
+        return RemedyBadgeType.acute;
+    }
   }
-}
-  /// RemedyModel অবজেক্টকে JSON map-এ রূপান্তর
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -72,6 +86,8 @@ class RemedyModel {
       'inimical': inimical,
       'source': source,
       'createdAt': createdAt.toIso8601String(),
+      'badgeType': badgeType.name,
+      'relationships': relationships.map((r) => r.toJson()).toList(),
     };
   }
 }
