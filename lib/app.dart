@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // ✅ ঠিক Import
 
 import 'config/firebase_options.dart';
 import 'core/app_routes.dart';
 import 'core/themes.dart';
-import 'language/app_localization.dart';
 import 'services/auth_service.dart';
 import 'controllers/language_controller.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // ensure this exists
-
 
 class HomeonixApp extends StatelessWidget {
   const HomeonixApp({super.key});
@@ -24,7 +22,7 @@ class HomeonixApp extends StatelessWidget {
     return Obx(() => GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Homeonix',
-          locale: languageController.currentLocale.value, // ✅ .value যোগ
+          locale: languageController.currentLocale.value,
           fallbackLocale: const Locale('en', 'US'),
           theme: AppThemes.lightTheme,
           darkTheme: AppThemes.darkTheme,
@@ -32,11 +30,11 @@ class HomeonixApp extends StatelessWidget {
           initialRoute: AppRoutes.splash,
           routes: AppRoutes.routes,
           localizationsDelegates: const [
-  AppLocalizations.delegate, // সঠিক delegate
-  GlobalMaterialLocalizations.delegate,
-  GlobalWidgetsLocalizations.delegate,
-  GlobalCupertinoLocalizations.delegate,
-],
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           supportedLocales: const [
             Locale('en', 'US'),
             Locale('bn', 'BD'),
@@ -47,7 +45,9 @@ class HomeonixApp extends StatelessWidget {
 
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   Get.put(AuthService());
   Get.put(LanguageController());
