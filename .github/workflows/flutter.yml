@@ -35,7 +35,10 @@ jobs:
 
       - name: Analyze code
         run: flutter analyze
-
+        
+- name: Disable explicit package dependencies
+  run: flutter config --no-enable-explicit-package-dependencies
+  
       - name: Accept Android Licenses
         run: yes | flutter doctor --android-licenses
 
