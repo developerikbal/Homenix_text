@@ -36,8 +36,8 @@ class HomeonixApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en', 'US'),
-            Locale('bn', 'BD'),
+          const Locale('en', 'US'),
+          const Locale('bn', 'BD'),
           ],
         ));
   }
