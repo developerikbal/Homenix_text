@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';  ✅ ঠিক Import
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';  // ঠিক Import
 import 'config/firebase_options.dart';
 import 'core/app_routes.dart';
 import 'core/themes.dart';
@@ -20,26 +19,26 @@ class HomeonixApp extends StatelessWidget {
     final languageController = Get.put(LanguageController());
 
     return Obx(() => GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Homeonix',
-          locale: languageController.currentLocale.value,
-          fallbackLocale: const Locale('en', 'US'),
-          theme: AppThemes.lightTheme,
-          darkTheme: AppThemes.darkTheme,
-          themeMode: ThemeMode.system,
-          initialRoute: AppRoutes.splash,
-          routes: AppRoutes.routes,
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: [
-           Locale('en', 'US'),
-           Locale('bn', 'BD'),
-          ],
-        ));
+      debugShowCheckedModeBanner: false,
+      title: 'Homeonix',
+      locale: languageController.currentLocale.value,
+      fallbackLocale: const Locale('en', 'US'),
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.system,
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('bn', 'BD'),
+      ],
+    ));
   }
 }
 
