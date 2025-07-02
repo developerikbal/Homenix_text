@@ -1,15 +1,9 @@
 {
-  "@@locale": "en",
-  "appTitle": "Homenix",
-  "@appTitle": {
-    "description": "The title of the application"
-  },
-  "welcome": "Welcome",
-  "@welcome": {
-    "description": "Welcome message"
-  },
-  "home": "Home",
-  "settings": "Settings",
-  "profile": "Profile",
-  "logout": "Logout"
+  "@@locale": "bn",
+  "appTitle": "হোমেনিক্স",
+  "welcome": "স্বাগতম",
+  "home": "হোম",
+  "settings": "সেটিংস",
+  "profile": "প্রোফাইল",
+  "logout": "লগআউট"
 }
