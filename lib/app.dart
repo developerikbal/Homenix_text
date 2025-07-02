@@ -18,7 +18,8 @@ class HomeonixApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final languageController = Get.put(LanguageController());
 
-    return Obx(() => GetMaterialApp(
+   
+return Obx(() => GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Homeonix',
       locale: languageController.currentLocale.value,
