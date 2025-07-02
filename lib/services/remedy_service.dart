@@ -1,22 +1,23 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
-import '../models/remedy_model.dart';
-
 /// RemedyService - Responsible for loading and analyzing remedy data.
 class RemedyService {
   static List<RemedyModel> _remedies = [];
 
-  /// Load data from local JSON
   static Future<void> loadRemedies() async {
     final String jsonString = await rootBundle.loadString('assets/books/translated_json/remedies.json');
     final List<dynamic> jsonData = json.decode(jsonString);
     _remedies = jsonData.map((json) => RemedyModel.fromJson(json)).toList();
   }
 
-  /// Return all remedies
+  /// ✅ ADD THIS METHOD
+  static Future<List<RemedyModel>> fetchAllRemedies() async {
+    if (_remedies.isEmpty) {
+      await loadRemedies();
+    }
+    return _remedies;
+  }
+
   static List<RemedyModel> getAllRemedies() => _remedies;
 
-  /// Search by input symptom
   static List<RemedyModel> searchBySymptoms(String inputSymptom) {
     final lowerInput = inputSymptom.toLowerCase();
     return _remedies.where((remedy) {
@@ -24,7 +25,6 @@ class RemedyService {
     }).toList();
   }
 
-  /// Find by ID
   static RemedyModel? getRemedyById(String id) {
     try {
       return _remedies.firstWhere((remedy) => remedy.id == id);
@@ -33,7 +33,6 @@ class RemedyService {
     }
   }
 
-  /// Compare two remedies
   static Map<String, dynamic> compareRemedies(String id1, String id2) {
     final r1 = getRemedyById(id1);
     final r2 = getRemedyById(id2);
@@ -53,14 +52,11 @@ class RemedyService {
     };
   }
 
-  /// Developer Methods
   static Future<void> addRemedy(RemedyModel remedy) async {
-    // Optional: implement write-back to Firebase or local DB
     _remedies.add(remedy);
   }
 
   static Future<void> updateRemedy(RemedyModel remedy) async {
-    // Optional: update data source
     final index = _remedies.indexWhere((r) => r.id == remedy.id);
     if (index != -1) {
       _remedies[index] = remedy;
