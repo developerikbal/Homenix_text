@@ -26,7 +26,7 @@ class BookController extends GetxController {
   Future<void> uploadBook(BookModel newBook, String filePath) async {
     isLoading.value = true;
     try {
-      final fileUrl = await _bookService.uploadBookFile(newBook.localFile!, filePath);
+      final fileUrl = await _bookService.uploadBookFile(newBook.localFile, filePath);
       if (fileUrl != null) {
         newBook.downloadUrl = fileUrl;
         await _bookService.saveBookMetadata(newBook);
