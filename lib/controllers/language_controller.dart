@@ -1,3 +1,6 @@
+// lib/controllers/language_controller.dart
+
+import 'package:flutter/material.dart'; //  Locale এর জন্য প্রয়োজনীয়
 import 'package:get/get.dart';
 import '../language/language_provider.dart';
 
