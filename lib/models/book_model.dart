@@ -1,23 +1,24 @@
+import 'dart:io'; // ✅ This line added
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// BookModel হলো হোমিওনিক্স সফটওয়্যারের প্রতিটি বইয়ের ডেটা ধারণকারী মডেল ক্লাস।
 class BookModel {
-  final String id;               // ইউনিক আইডি (Firebase doc ID or local ID)
-  final String title;           // বইয়ের নাম
-  final String author;          // লেখক
-  final String category;        // ধরন: materia medica / repertory / clinical
-  final String language;        // ভাষা: English / Bengali
-  final String filePath;        // লোকাল path or firebase URL
-  final String? coverUrl;       // বইয়ের কভার ইমেজ (optional)
-  final DateTime uploadDate;    // আপলোড বা যোগের তারিখ
-  final bool isTranslated;      // বইটি বাংলা/ইংরেজিতে অনূদিত কি না
-  final bool isVerified;        // ডেভেলপার দ্বারা অনুমোদিত কিনা
-  final bool isDeleted;         // soft delete এর জন্য
-  final int pageCount;          // মোট পৃষ্ঠা
-  final String addedBy;         // কে যুক্ত করেছে (ডেভেলপার Gmail or UID)
-  final String remarks;         // অতিরিক্ত মন্তব্য বা নোট
-  // Add this getter
-  File get localFile => File(filePath);
+  final String id;
+  final String title;
+  final String author;
+  final String category;
+  final String language;
+  final String filePath;
+  final String? coverUrl;
+  final DateTime uploadDate;
+  final bool isTranslated;
+  final bool isVerified;
+  final bool isDeleted;
+  final int pageCount;
+  final String addedBy;
+  final String remarks;
+
+  File get localFile => File(filePath); // ✅ This will now work
+
   BookModel({
     required this.id,
     required this.title,
@@ -35,7 +36,6 @@ class BookModel {
     required this.remarks,
   });
 
-  /// Firestore থেকে নেওয়া map কে BookModel এ রূপান্তর
   factory BookModel.fromMap(Map<String, dynamic> map, String docId) {
     return BookModel(
       id: docId,
@@ -55,7 +55,6 @@ class BookModel {
     );
   }
 
-  /// BookModel কে Map এ রূপান্তর করে Firebase বা Local DB তে পাঠাতে
   Map<String, dynamic> toMap() {
     return {
       'title': title,
@@ -74,7 +73,6 @@ class BookModel {
     };
   }
 
-  /// JSON থেকে রূপান্তর (যদি কখনো Firebase ছাড়া অন্য সোর্সে ব্যবহার হয়)
   factory BookModel.fromJson(Map<String, dynamic> json) {
     return BookModel(
       id: json['id'],
