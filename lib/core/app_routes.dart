@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../screens/auth/login_screen.dart';
-import '../screens/auth/register_screen.dart';
-import '../screens/auth/reset_password.dart';
-import '../screens/auth/splash_screen.dart';
-import '../screens/auth/trial_blocked_screen.dart';
+import 'package:homeonix/screens/auth/login_screen.dart';
+import 'package:homeonix/screens/auth/register_screen.dart';
+import 'package:homeonix/screens/auth/reset_password.dart';
+import 'package:homeonix/screens/auth/splash_screen.dart';
+import 'package:homeonix/screens/auth/trial_blocked_screen.dart';
 import '../screens/common/welcome_screen.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/home/patient_input_screen.dart';
