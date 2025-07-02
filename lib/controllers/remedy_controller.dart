@@ -3,8 +3,6 @@ import '../services/remedy_service.dart';
 import '../models/remedy_model.dart';
 
 class RemedyController with ChangeNotifier {
-  final RemedyService _remedyService = RemedyService();
-
   List<RemedyModel> _allRemedies = [];
   List<RemedyModel> _filteredRemedies = [];
   List<RemedyModel> _suggestedRemedies = [];
@@ -21,7 +19,7 @@ class RemedyController with ChangeNotifier {
     notifyListeners();
 
     try {
-      _allRemedies = await _remedyService.fetchAllRemedies();
+      _allRemedies = await RemedyService.fetchAllRemedies();
       _filteredRemedies = List.from(_allRemedies);
     } catch (e) {
       debugPrint('Failed to load remedies: $e');
@@ -39,8 +37,7 @@ class RemedyController with ChangeNotifier {
         final matchInSymptoms = remedy.symptoms.any(
           (symptom) => symptom.toLowerCase().contains(keyword.toLowerCase()),
         );
-        final matchInName =
-            remedy.name.toLowerCase().contains(keyword.toLowerCase());
+        final matchInName = remedy.name.toLowerCase().contains(keyword.toLowerCase());
         return matchInSymptoms || matchInName;
       }).toList();
     }
@@ -60,10 +57,11 @@ class RemedyController with ChangeNotifier {
     }
   }
 
-  /// Developer features:
+  /// Developer Features
+
   Future<void> addNewRemedy(RemedyModel newRemedy) async {
     try {
-      await _remedyService.addRemedy(newRemedy);
+      await RemedyService.addRemedy(newRemedy);
       _allRemedies.add(newRemedy);
       notifyListeners();
     } catch (e) {
@@ -73,9 +71,8 @@ class RemedyController with ChangeNotifier {
 
   Future<void> updateRemedy(RemedyModel updatedRemedy) async {
     try {
-      await _remedyService.updateRemedy(updatedRemedy);
-      final index =
-          _allRemedies.indexWhere((r) => r.id == updatedRemedy.id);
+      await RemedyService.updateRemedy(updatedRemedy);
+      final index = _allRemedies.indexWhere((r) => r.id == updatedRemedy.id);
       if (index != -1) {
         _allRemedies[index] = updatedRemedy;
         notifyListeners();
@@ -87,7 +84,7 @@ class RemedyController with ChangeNotifier {
 
   Future<void> deleteRemedy(String remedyId) async {
     try {
-      await _remedyService.deleteRemedy(remedyId);
+      await RemedyService.deleteRemedy(remedyId);
       _allRemedies.removeWhere((r) => r.id == remedyId);
       notifyListeners();
     } catch (e) {
@@ -95,9 +92,8 @@ class RemedyController with ChangeNotifier {
     }
   }
 
-  /// Main logic for remedy suggestion
   void analyzeSymptoms(String inputText) {
-    _suggestedRemedies = _remedyService.searchBySymptoms(inputText);
+    _suggestedRemedies = RemedyService.searchBySymptoms(inputText);
     notifyListeners();
   }
 }
