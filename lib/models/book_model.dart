@@ -16,7 +16,8 @@ class BookModel {
   final int pageCount;          // মোট পৃষ্ঠা
   final String addedBy;         // কে যুক্ত করেছে (ডেভেলপার Gmail or UID)
   final String remarks;         // অতিরিক্ত মন্তব্য বা নোট
-
+  // Add this getter
+  File get localFile => File(filePath);
   BookModel({
     required this.id,
     required this.title,
