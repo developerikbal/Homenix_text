@@ -1,4 +1,4 @@
-import 'dart:io'; // ✅ This line added
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BookModel {
@@ -17,7 +17,10 @@ class BookModel {
   final String addedBy;
   final String remarks;
 
-  File get localFile => File(filePath); // ✅ This will now work
+  ///  Newly added field
+  String? downloadUrl;
+
+  File get localFile => File(filePath);
 
   BookModel({
     required this.id,
@@ -34,6 +37,7 @@ class BookModel {
     required this.pageCount,
     required this.addedBy,
     required this.remarks,
+    this.downloadUrl, // added to constructor
   });
 
   factory BookModel.fromMap(Map<String, dynamic> map, String docId) {
@@ -52,6 +56,7 @@ class BookModel {
       pageCount: map['pageCount'] ?? 0,
       addedBy: map['addedBy'] ?? 'unknown',
       remarks: map['remarks'] ?? '',
+      downloadUrl: map['downloadUrl'], 
     );
   }
 
@@ -70,6 +75,7 @@ class BookModel {
       'pageCount': pageCount,
       'addedBy': addedBy,
       'remarks': remarks,
+      'downloadUrl': downloadUrl, 
     };
   }
 
@@ -89,6 +95,7 @@ class BookModel {
       pageCount: json['pageCount'] ?? 0,
       addedBy: json['addedBy'] ?? 'unknown',
       remarks: json['remarks'] ?? '',
+      downloadUrl: json['downloadUrl'], 
     );
   }
 
@@ -107,5 +114,6 @@ class BookModel {
         'pageCount': pageCount,
         'addedBy': addedBy,
         'remarks': remarks,
+        'downloadUrl': downloadUrl, 
       };
 }
