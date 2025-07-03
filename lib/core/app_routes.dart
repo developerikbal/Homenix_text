@@ -22,7 +22,7 @@ import 'package:homeonix/screens/book/book_detail_screen.dart';
 import 'package:homeonix/screens/developer/developer_panel.dart';
 import 'package:homeonix/screens/developer/upload_book_screen.dart';
 import 'package:homeonix/screens/developer/upload_image_screen.dart';
-import 'package:homeonix/screens/developer/book_metadata_editor.dart'; // ✅ Correct class spelling
+import 'package:homeonix/screens/developer/book_metadata_editor.dart';
 import 'package:homeonix/screens/developer/book_translator_screen.dart';
 
 import 'package:homeonix/screens/settings/settings_screen.dart';
@@ -31,6 +31,11 @@ import 'package:homeonix/screens/settings/darkmode_toggle.dart';
 
 import 'package:homeonix/screens/common/unauthorized_screen.dart';
 import 'package:homeonix/screens/common/not_found_screen.dart';
+
+// ✅ Import Models
+import 'package:homeonix/models/remedy_model.dart';
+import 'package:homeonix/models/book_model.dart';
+import 'package:homeonix/models/remedy_score.dart';
 
 final appRoutes = [
   GetPage(name: '/login', page: () => const LoginScreen()),
@@ -82,17 +87,23 @@ class AppRoutes {
     inputSymptoms: (_) => const PatientInputScreen(),
     searchRemedy: (_) => const RemedySearchScreen(),
 
-    remedyDetail: (_) => const RemedyDetailScreen(remedy: ''), // ✅ placeholder
-    remedyCompare: (_) => const RemedyCompareScreen(remedy1: '', remedy2: ''), // ✅ placeholder
-    remedyGraph: (_) => const RemedyGraphScreen(remedyScores: const {}), // ✅ placeholder
+    // ✅ Corrected with dummy RemedyModel
+    remedyDetail: (_) => RemedyDetailScreen(remedy: RemedyModel(id: 'demo', name: 'Demo Remedy')),
+    remedyCompare: (_) => RemedyCompareScreen(
+        remedy1: RemedyModel(id: '1', name: 'Remedy A'),
+        remedy2: RemedyModel(id: '2', name: 'Remedy B')),
+    remedyGraph: (_) => RemedyGraphScreen(
+        remedyScores: <RemedyScore>[
+          RemedyScore(remedy: RemedyModel(id: 'r1', name: 'ABC'), score: 3)
+        ]),
 
     bookList: (_) => const BookListScreen(),
-    bookDetail: (_) => const BookDetailScreen(book: {}), // ✅ placeholder
+    bookDetail: (_) => BookDetailScreen(book: BookModel(id: 'demoBook', title: 'Demo Book')),
 
     developerPanel: (_) => const DeveloperPanel(),
     uploadBook: (_) => const UploadBookScreen(),
     uploadImage: (_) => const UploadImageScreen(),
-    bookMetadata: (_) => const BookMetadataEditorScreen(bookId: ''), // ✅ placeholder
+    bookMetadata: (_) => BookMetadataEditorScreen(bookId: 'demoBookId'),
     translateBook: (_) => const BookTranslatorScreen(),
 
     settings: (_) => const SettingsScreen(),
