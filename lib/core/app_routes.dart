@@ -23,7 +23,13 @@ import 'package:homeonix/screens/settings/language_screen.dart';
 import 'package:homeonix/screens/settings/darkmode_toggle.dart';
 import 'package:homeonix/screens/common/unauthorized_screen.dart';
 import 'package:homeonix/screens/common/not_found_screen.dart';
+import 'package:get/get.dart';
 
+final appRoutes = [
+  GetPage(name: '/login', page: () => const LoginScreen()),
+  GetPage(name: '/reset-password', page: () => const ResetPasswordScreen()),
+  GetPage(name: '/home', page: () => const HomeScreen()),
+];
 class AppRoutes {
   static const String splash = '/';
   static const String welcome = '/welcome';
