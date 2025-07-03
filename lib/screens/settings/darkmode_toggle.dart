@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../core/themes/theme_manager.dart'; // যদি থিম ম্যানেজার core বা theme ফোল্ডারে থাকে
+import '../../core/themes/theme_manager.dart'; // Update path if different
 
 class DarkModeToggle extends StatelessWidget {
-  const DarkModeToggle({Key? key}) : super(key: key);
+  const DarkModeToggle({super.key}); // ✅ Improved by using super.key
 
   @override
   Widget build(BuildContext context) {
