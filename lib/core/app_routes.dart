@@ -4,7 +4,7 @@ import 'package:homeonix/screens/auth/register_screen.dart';
 import 'package:homeonix/screens/auth/reset_password.dart';
 import 'package:homeonix/screens/auth/splash_screen.dart';
 import 'package:homeonix/screens/auth/trial_blocked_screen.dart';
-import 'package:homeonix/screens/common/welcome_screen.dart';
+import 'package:homeonix/screens/welcome/welcome_screen.dart';
 import 'package:homeonix/screens/home/home_screen.dart';
 import 'package:homeonix/screens/home/patient_input_screen.dart';
 import 'package:homeonix/screens/home/remedy_search_screen.dart';
