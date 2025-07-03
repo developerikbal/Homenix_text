@@ -22,7 +22,7 @@ import 'package:homeonix/screens/book/book_detail_screen.dart';
 import 'package:homeonix/screens/developer/developer_panel.dart';
 import 'package:homeonix/screens/developer/upload_book_screen.dart';
 import 'package:homeonix/screens/developer/upload_image_screen.dart';
-import 'package:homeonix/screens/developer/book_metadata_editor_screen.dart'; // ✅ Correct class spelling
+import 'package:homeonix/screens/developer/book_metadata_editor.dart'; // ✅ Correct class spelling
 import 'package:homeonix/screens/developer/book_translator_screen.dart';
 
 import 'package:homeonix/screens/settings/settings_screen.dart';
