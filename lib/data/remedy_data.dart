@@ -4,12 +4,12 @@ import '../models/remedy_model.dart';
 String _generateId(String name, int idx) => '${name.toLowerCase()}_$idx';
 
 // Helper function to convert relationship Map<String, List<String>>
-// to List<RemedyRelationship>
-List<RemedyRelationship> toRelationshipList(Map<String, List<String>> map) {
-  final List<RemedyRelationship> res = [];
+// to List<RelationshipModel>
+List<RelationshipModel> toRelationshipList(Map<String, List<String>> map) {
+  final List<RelationshipModel> res = [];
   map.forEach((type, names) {
     for (final remedy in names) {
-      res.add(RemedyRelationship(type: type, remedy: remedy));
+      res.add(RelationshipModel(type: type, remedy: remedy));
     }
   });
   return res;
