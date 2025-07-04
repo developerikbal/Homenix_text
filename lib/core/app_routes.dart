@@ -89,6 +89,7 @@ class AppRoutes {
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [],
       ),
     ),
     remedyCompare: (_) => RemedyCompareScreen(
@@ -101,6 +102,7 @@ class AppRoutes {
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [],
       ),
       remedy2: RemedyModel(
         id: '2',
@@ -111,6 +113,7 @@ class AppRoutes {
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [],
       ),
     ),
     remedyGraph: (_) => const RemedyGraphScreen(),
@@ -119,7 +122,7 @@ class AppRoutes {
     bookDetail: (_) => BookDetailScreen(
       book: BookModel(
         id: 'demoBook',
-        bookId: 'demoBook', // ✅ bookId required & used
+        bookId: 'demoBook', // required
         addedBy: 'admin',
         author: 'Anonymous',
         category: 'General',
