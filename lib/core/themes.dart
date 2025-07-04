@@ -26,12 +26,12 @@ class AppThemes {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.surface,
-      background: AppColors.background,
+      // background is deprecated, use surface instead
       error: AppColors.error,
       onPrimary: AppColors.textLight,
       onSecondary: AppColors.textLight,
       onSurface: AppColors.text,
-      onBackground: AppColors.text,
+      // onBackground is deprecated, use onSurface instead
       onError: AppColors.textLight,
     ),
     textTheme: const TextTheme(
@@ -55,12 +55,12 @@ class AppThemes {
       primary: AppColors.primary,
       secondary: AppColors.accent,
       surface: Colors.grey[850]!,
-      background: Colors.black,
+      // background is deprecated, use surface instead
       error: AppColors.error,
       onPrimary: AppColors.textLight,
       onSecondary: AppColors.textLight,
       onSurface: AppColors.textLight,
-      onBackground: AppColors.textLight,
+      // onBackground is deprecated, use onSurface instead
       onError: AppColors.textLight,
     ),
     textTheme: const TextTheme(
