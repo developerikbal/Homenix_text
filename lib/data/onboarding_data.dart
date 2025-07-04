@@ -1,7 +1,3 @@
-// File: lib/data/onboarding_data.dart
-
-import 'package:flutter/material.dart';
-
 class OnboardingItem {
   final String title;
   final String description;
