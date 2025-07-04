@@ -1,18 +1,16 @@
-// lib/developer/control_panel.dart
-
 import 'package:flutter/material.dart';
 
 // Importing necessary developer screens
-import '../developer/upload_books.dart';
-import '../developer/file_manager.dart';
-import '../developer/book_metadata_editor.dart';
-import '../developer/upload_history_view.dart';
-import '../developer/test_feature_runner.dart';
+import 'upload_books.dart';
+import 'file_manager.dart';
+import 'book_metadata_editor.dart';
+import 'upload_history_view.dart';
+import 'test_feature_runner.dart';
 import '../payment/payment_ui.dart';
 import '../services/developer_unlock_service.dart';
 
 class DeveloperControlPanel extends StatelessWidget {
-  const DeveloperControlPanel({Key? key}) : super(key: key);
+  const DeveloperControlPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
