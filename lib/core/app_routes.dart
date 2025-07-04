@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'package:homeonix/screens/auth/reset_password_screen.dart';
 import 'package:homeonix/screens/auth/splash_screen.dart';
@@ -22,7 +21,7 @@ import 'package:homeonix/screens/book/book_detail_screen.dart';
 import 'package:homeonix/screens/developer/developer_panel.dart';
 import 'package:homeonix/screens/developer/upload_book_screen.dart';
 import 'package:homeonix/screens/developer/upload_image_screen.dart';
-import 'package:homeonix/screens/developer/book_metadata_editor.dart';
+// import 'package:homeonix/screens/developer/book_metadata_editor.dart'; // unused or not found
 import 'package:homeonix/screens/developer/book_translator_screen.dart';
 
 import 'package:homeonix/screens/settings/settings_screen.dart';
@@ -35,13 +34,6 @@ import 'package:homeonix/screens/common/not_found_screen.dart';
 // ✅ Import Models
 import 'package:homeonix/models/remedy_model.dart';
 import 'package:homeonix/models/book_model.dart';
-import 'package:homeonix/models/remedy_score.dart';
-
-final appRoutes = [
-  GetPage(name: '/login', page: () => const LoginScreen()),
-  GetPage(name: '/reset-password', page: () => const ResetPasswordScreen()),
-  GetPage(name: '/home', page: () => const HomeScreen()),
-];
 
 class AppRoutes {
   static const String splash = '/';
@@ -65,7 +57,7 @@ class AppRoutes {
   static const String developerPanel = '/developer';
   static const String uploadBook = '/developer/upload-book';
   static const String uploadImage = '/developer/upload-image';
-  static const String bookMetadata = '/developer/book-metadata';
+  // static const String bookMetadata = '/developer/book-metadata'; // unused or not found
   static const String translateBook = '/developer/translate-book';
 
   static const String settings = '/settings';
@@ -87,23 +79,68 @@ class AppRoutes {
     inputSymptoms: (_) => const PatientInputScreen(),
     searchRemedy: (_) => const RemedySearchScreen(),
 
-    // ✅ Corrected with dummy RemedyModel
-    remedyDetail: (_) => RemedyDetailScreen(remedy: RemedyModel(id: 'demo', name: 'Demo Remedy')),
+    // Example RemedyModel with all required parameters
+    remedyDetail: (_) => RemedyDetailScreen(
+      remedy: RemedyModel(
+        id: 'demo',
+        name: 'Demo Remedy',
+        badgeType: 'Test',
+        createdAt: DateTime.now(),
+        grade: '',
+        keynote: '',
+        potency: '',
+        symptoms: const [],
+      ),
+    ),
     remedyCompare: (_) => RemedyCompareScreen(
-        remedy1: RemedyModel(id: '1', name: 'Remedy A'),
-        remedy2: RemedyModel(id: '2', name: 'Remedy B')),
-    remedyGraph: (_) => RemedyGraphScreen(
-        remedyScores: <RemedyScore>[
-          RemedyScore(remedy: RemedyModel(id: 'r1', name: 'ABC'), score: 3)
-        ]),
+      remedy1: RemedyModel(
+        id: '1',
+        name: 'Remedy A',
+        badgeType: 'A',
+        createdAt: DateTime.now(),
+        grade: '',
+        keynote: '',
+        potency: '',
+        symptoms: const [],
+      ),
+      remedy2: RemedyModel(
+        id: '2',
+        name: 'Remedy B',
+        badgeType: 'B',
+        createdAt: DateTime.now(),
+        grade: '',
+        keynote: '',
+        potency: '',
+        symptoms: const [],
+      ),
+    ),
+    // RemedyGraphScreen: dummy route (since remedy_score.dart missing)
+    remedyGraph: (_) => const RemedyGraphScreen(),
 
     bookList: (_) => const BookListScreen(),
-    bookDetail: (_) => BookDetailScreen(book: BookModel(id: 'demoBook', title: 'Demo Book')),
+    bookDetail: (_) => BookDetailScreen(
+      book: BookModel(
+        id: 'demoBook',
+        name: 'Demo Book',
+        addedBy: 'admin',
+        author: 'Anonymous',
+        category: 'General',
+        filePath: '',
+        isDeleted: false,
+        isTranslated: false,
+        isVerified: false,
+        language: 'en',
+        pageCount: 100,
+        remarks: '',
+        title: 'Demo Book',
+        uploadDate: DateTime.now(),
+      ),
+    ),
 
     developerPanel: (_) => const DeveloperPanel(),
     uploadBook: (_) => const UploadBookScreen(),
     uploadImage: (_) => const UploadImageScreen(),
-    bookMetadata: (_) => BookMetadataEditorScreen(bookId: 'demoBookId'),
+    // bookMetadata: (_) => BookMetadataEditorScreen(bookId: 'demoBookId'), // undefined, commented out
     translateBook: (_) => const BookTranslatorScreen(),
 
     settings: (_) => const SettingsScreen(),
