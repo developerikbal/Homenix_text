@@ -1,21 +1,20 @@
-// lib/models/relationship_model.dart
 class RelationshipModel {
-  final String name;
   final String type;
+  final String remedy;
 
-  RelationshipModel({required this.name, required this.type});
+  RelationshipModel({required this.type, required this.remedy});
 
   factory RelationshipModel.fromJson(Map<String, dynamic> json) {
     return RelationshipModel(
-      name: json['name'] ?? '',
       type: json['type'] ?? '',
+      remedy: json['remedy'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'name': name,
       'type': type,
+      'remedy': remedy,
     };
   }
 }
