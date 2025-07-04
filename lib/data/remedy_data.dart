@@ -4,12 +4,12 @@ import '../models/remedy_model.dart';
 String _generateId(String name, int idx) => '${name.toLowerCase()}_$idx';
 
 // Helper function to convert relationship Map<String, List<String>>
-// to List<RelationshipModel>
-List<RelationshipModel> toRelationshipList(Map<String, List<String>> map) {
-  final List<RelationshipModel> res = [];
+// to List<RemedyRelationship>
+List<RemedyRelationship> toRelationshipList(Map<String, List<String>> map) {
+  final List<RemedyRelationship> res = [];
   map.forEach((type, names) {
     for (final remedy in names) {
-      res.add(RelationshipModel(type: type, remedy: remedy));
+      res.add(RemedyRelationship(type: type, remedy: remedy));
     }
   });
   return res;
@@ -21,7 +21,7 @@ final List<RemedyModel> remedyList = [
     name: 'Aconite',
     keynote: 'Sudden onset of intense fear, anxiety, and high fever after exposure to cold, dry wind.',
     grade: 1,
-    badgeType: 'acute',
+    badgeType: RemedyBadgeType.acute,
     createdAt: DateTime(2024, 7, 1),
     potency: '30C/200C',
     symptoms: [
@@ -65,7 +65,7 @@ final List<RemedyModel> remedyList = [
     name: 'Bryonia',
     keynote: 'Dryness, great thirst, and aggravation from the slightest motion.',
     grade: 1,
-    badgeType: 'chronic',
+    badgeType: RemedyBadgeType.chronic,
     createdAt: DateTime(2024, 7, 1),
     potency: '30C-200C',
     symptoms: [
@@ -110,7 +110,7 @@ final List<RemedyModel> remedyList = [
     name: 'Arsenicum Album',
     keynote: 'Great weakness, burning pains, and anxiety about health.',
     grade: 1,
-    badgeType: 'acute',
+    badgeType: RemedyBadgeType.acute,
     createdAt: DateTime(2024, 7, 1),
     potency: '6C/30C/200C',
     symptoms: [
