@@ -1,4 +1,5 @@
 import '../models/remedy_model.dart';
+import '../models/relationship_model.dart';
 
 // Helper function to generate a unique id for each remedy
 String _generateId(String name, int idx) => '${name.toLowerCase()}_$idx';
