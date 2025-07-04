@@ -1,10 +1,41 @@
-// lib/data/remedy_data.dart
-
 import '../models/remedy_model.dart';
+
+// Helper function to generate a unique id for each remedy
+String _generateId(String name, int idx) => '${name.toLowerCase()}_$idx';
+
+// Helper function to convert relationship Map<String, List<String>>
+// to List<RelationshipModel>
+List<RelationshipModel> toRelationshipList(Map<String, List<String>> map) {
+  final List<RelationshipModel> res = [];
+  map.forEach((type, names) {
+    for (final remedy in names) {
+      res.add(RelationshipModel(type: type, remedy: remedy));
+    }
+  });
+  return res;
+}
 
 final List<RemedyModel> remedyList = [
   RemedyModel(
+    id: _generateId('Aconite', 0),
     name: 'Aconite',
+    keynote: 'Sudden onset of intense fear, anxiety, and high fever after exposure to cold, dry wind.',
+    grade: 1,
+    badgeType: 'acute',
+    createdAt: DateTime(2024, 7, 1),
+    potency: '30C/200C',
+    symptoms: [
+      'Sudden onset of symptoms',
+      'High fever with restlessness',
+      'Dry, burning heat',
+      'Thirst for cold drinks',
+      'Red, hot face',
+      'Worse at night',
+      'Worse from cold, dry wind',
+      'Fear and anxiety',
+      'Fear of death',
+      'Restless and anxious',
+    ],
     keySymptoms: [
       'Sudden onset of symptoms',
       'Fear and anxiety',
@@ -23,15 +54,32 @@ final List<RemedyModel> remedyList = [
       'Thirst for cold drinks',
       'Red, hot face',
     ],
-    relationships: {
+    potencySuggestion: '30C for acute; 200C in intense mental state',
+    relationships: toRelationshipList({
       'Complementary': ['Belladonna'],
       'Inimical': ['Sulphur'],
-    },
-    potencySuggestion: '30C for acute; 200C in intense mental state',
+    }),
   ),
-
   RemedyModel(
+    id: _generateId('Bryonia', 1),
     name: 'Bryonia',
+    keynote: 'Dryness, great thirst, and aggravation from the slightest motion.',
+    grade: 1,
+    badgeType: 'chronic',
+    createdAt: DateTime(2024, 7, 1),
+    potency: '30C-200C',
+    symptoms: [
+      'Dryness of all membranes',
+      'Great thirst for large quantities of water',
+      'Worse from slightest motion',
+      'Better from rest',
+      'Worse in the morning',
+      'Irritable',
+      'Wants to be left alone',
+      'Headache over forehead',
+      'Dry, hacking cough',
+      'Stitching pain in chest',
+    ],
     keySymptoms: [
       'Dryness of all membranes',
       'Great thirst for large quantities of water',
@@ -51,15 +99,31 @@ final List<RemedyModel> remedyList = [
       'Dry, hacking cough',
       'Stitching pain in chest',
     ],
-    relationships: {
+    potencySuggestion: '30C to 200C depending on intensity',
+    relationships: toRelationshipList({
       'Complementary': ['Rhus Toxicodendron'],
       'Inimical': ['Pulsatilla'],
-    },
-    potencySuggestion: '30C to 200C depending on intensity',
+    }),
   ),
-
   RemedyModel(
+    id: _generateId('Arsenicum Album', 2),
     name: 'Arsenicum Album',
+    keynote: 'Great weakness, burning pains, and anxiety about health.',
+    grade: 1,
+    badgeType: 'acute',
+    createdAt: DateTime(2024, 7, 1),
+    potency: '6C/30C/200C',
+    symptoms: [
+      'Great weakness and restlessness',
+      'Burning pains',
+      'Anxiety about health',
+      'Better with warmth',
+      'Worse after midnight',
+      'Fear of being alone',
+      'Anxiety and restlessness',
+      'Vomiting and diarrhea',
+      'Burning sensation in chest or stomach',
+    ],
     keySymptoms: [
       'Great weakness and restlessness',
       'Burning pains',
@@ -77,10 +141,10 @@ final List<RemedyModel> remedyList = [
       'Vomiting and diarrhea',
       'Burning sensation in chest or stomach',
     ],
-    relationships: {
+    potencySuggestion: '6C, 30C or 200C depending on case',
+    relationships: toRelationshipList({
       'Complementary': ['Phosphorus'],
       'Inimical': ['Nux Vomica'],
-    },
-    potencySuggestion: '6C, 30C or 200C depending on case',
+    }),
   ),
 ];
