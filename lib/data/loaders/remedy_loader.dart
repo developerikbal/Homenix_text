@@ -1,7 +1,6 @@
-// File: lib/data/loaders/remedy_loader.dart
-
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 import '../../models/remedy_model.dart';
 
 /// RemedyLoader class responsible for loading and parsing remedy JSON data.
@@ -26,7 +25,9 @@ class RemedyLoader {
       final List<dynamic> jsonList = jsonDecode(jsonString);
       _remedies = jsonList.map((json) => RemedyModel.fromJson(json)).toList();
     } catch (e) {
-      print('Error loading remedies: $e');
+      if (kDebugMode) {
+        print('Error loading remedies: $e');
+      }
       _remedies = [];
     }
   }
