@@ -1,5 +1,3 @@
-// lib/models/remedy_model.dart
-
 import 'relationship_model.dart';
 
 /// RemedyModel: একটি হোমিওপ্যাথিক ঔষধের পূর্ণাঙ্গ তথ্য ধারণ করার মডেল ক্লাস
@@ -22,6 +20,14 @@ class RemedyModel {
   /// নতুন যুক্ত ফিল্ড
   final List<RelationshipModel> relationships;
 
+  /// *** ADD THESE FIELDS FOR FULL FEATURE SUPPORT ***
+  /// (If you want to add keySymptoms, modalities, mentalSymptoms, physicalSymptoms, potencySuggestion)
+  final List<String>? keySymptoms;
+  final List<String>? modalities;
+  final List<String>? mentalSymptoms;
+  final List<String>? physicalSymptoms;
+  final String? potencySuggestion;
+
   RemedyModel({
     required this.id,
     required this.name,
@@ -35,6 +41,11 @@ class RemedyModel {
     required this.createdAt,
     required this.badgeType,
     this.relationships = const [],
+    this.keySymptoms,
+    this.modalities,
+    this.mentalSymptoms,
+    this.physicalSymptoms,
+    this.potencySuggestion,
   });
 
   factory RemedyModel.fromJson(Map<String, dynamic> json) {
@@ -58,6 +69,19 @@ class RemedyModel {
               ?.map((e) => RelationshipModel.fromJson(e))
               .toList() ??
           [],
+      keySymptoms: json['keySymptoms'] != null
+          ? List<String>.from(json['keySymptoms'])
+          : null,
+      modalities: json['modalities'] != null
+          ? List<String>.from(json['modalities'])
+          : null,
+      mentalSymptoms: json['mentalSymptoms'] != null
+          ? List<String>.from(json['mentalSymptoms'])
+          : null,
+      physicalSymptoms: json['physicalSymptoms'] != null
+          ? List<String>.from(json['physicalSymptoms'])
+          : null,
+      potencySuggestion: json['potencySuggestion'],
     );
   }
 
@@ -88,6 +112,11 @@ class RemedyModel {
       'createdAt': createdAt.toIso8601String(),
       'badgeType': badgeType.name,
       'relationships': relationships.map((r) => r.toJson()).toList(),
+      'keySymptoms': keySymptoms,
+      'modalities': modalities,
+      'mentalSymptoms': mentalSymptoms,
+      'physicalSymptoms': physicalSymptoms,
+      'potencySuggestion': potencySuggestion,
     };
   }
 }
