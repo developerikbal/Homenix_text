@@ -79,49 +79,51 @@ class AppRoutes {
     inputSymptoms: (_) => const PatientInputScreen(),
     searchRemedy: (_) => const RemedySearchScreen(),
 
-    // Example RemedyModel with all required parameters
+    // RemedyDetailScreen
     remedyDetail: (_) => RemedyDetailScreen(
       remedy: RemedyModel(
         id: 'demo',
         name: 'Demo Remedy',
-        badgeType: 'Test',
+        badgeType: RemedyBadgeType.demo, // enum value instead of string
         createdAt: DateTime.now(),
-        grade: '',
+        grade: 0, // int value instead of string
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [], // required field if needed
       ),
     ),
     remedyCompare: (_) => RemedyCompareScreen(
       remedy1: RemedyModel(
         id: '1',
         name: 'Remedy A',
-        badgeType: 'A',
+        badgeType: RemedyBadgeType.A, // enum value
         createdAt: DateTime.now(),
-        grade: '',
+        grade: 1,
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [],
       ),
       remedy2: RemedyModel(
         id: '2',
         name: 'Remedy B',
-        badgeType: 'B',
+        badgeType: RemedyBadgeType.B, // enum value
         createdAt: DateTime.now(),
-        grade: '',
+        grade: 2,
         keynote: '',
         potency: '',
         symptoms: const [],
+        remedyScores: const [],
       ),
     ),
-    // RemedyGraphScreen: dummy route (since remedy_score.dart missing)
     remedyGraph: (_) => const RemedyGraphScreen(),
 
     bookList: (_) => const BookListScreen(),
     bookDetail: (_) => BookDetailScreen(
       book: BookModel(
         id: 'demoBook',
-        name: 'Demo Book',
+        bookId: 'demoBook', // if required by BookModel
         addedBy: 'admin',
         author: 'Anonymous',
         category: 'General',
