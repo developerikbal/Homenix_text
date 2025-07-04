@@ -84,37 +84,34 @@ class AppRoutes {
       remedy: RemedyModel(
         id: 'demo',
         name: 'Demo Remedy',
-        badgeType: RemedyBadgeType.demo, // enum value instead of string
+        badgeType: RemedyBadgeType.values.first, // enum-এর প্রথম ভ্যালু
         createdAt: DateTime.now(),
-        grade: 0, // int value instead of string
+        grade: 0,
         keynote: '',
         potency: '',
         symptoms: const [],
-        remedyScores: const [], // required field if needed
       ),
     ),
     remedyCompare: (_) => RemedyCompareScreen(
       remedy1: RemedyModel(
         id: '1',
         name: 'Remedy A',
-        badgeType: RemedyBadgeType.A, // enum value
+        badgeType: RemedyBadgeType.values.first,
         createdAt: DateTime.now(),
         grade: 1,
         keynote: '',
         potency: '',
         symptoms: const [],
-        remedyScores: const [],
       ),
       remedy2: RemedyModel(
         id: '2',
         name: 'Remedy B',
-        badgeType: RemedyBadgeType.B, // enum value
+        badgeType: RemedyBadgeType.values.first,
         createdAt: DateTime.now(),
         grade: 2,
         keynote: '',
         potency: '',
         symptoms: const [],
-        remedyScores: const [],
       ),
     ),
     remedyGraph: (_) => const RemedyGraphScreen(),
@@ -123,7 +120,8 @@ class AppRoutes {
     bookDetail: (_) => BookDetailScreen(
       book: BookModel(
         id: 'demoBook',
-        bookId: 'demoBook', // if required by BookModel
+        // শুধু বিদ্যমান ও প্রয়োজনীয় ফিল্ড দিন
+        name: 'Demo Book',
         addedBy: 'admin',
         author: 'Anonymous',
         category: 'General',
