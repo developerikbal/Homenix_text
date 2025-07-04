@@ -1,7 +1,29 @@
-/// Contains mapping and index information of integrated homeopathic books.
-/// Used to reference translated rubrics, raw PDFs, and source attribution.
+// Contains mapping and index information of integrated homeopathic books.
+// Used to reference translated rubrics, raw PDFs, and source attribution.
 
-final List<BookIndex> bookIndexList = const [
+class BookIndex {
+  final String id;
+  final String title;
+  final String author;
+  final String language;
+  final String version;
+  final String source;
+  final bool translated;
+  final String filePath;
+
+  const BookIndex({
+    required this.id,
+    required this.title,
+    required this.author,
+    required this.language,
+    required this.version,
+    required this.source,
+    required this.translated,
+    required this.filePath,
+  });
+}
+
+const List<BookIndex> bookIndexList = [
   BookIndex(
     id: 'k_boenninghausen',
     title: 'Boenninghausen’s Therapeutic Pocket Book',
@@ -43,25 +65,3 @@ final List<BookIndex> bookIndexList = const [
     filePath: 'assets/books/raw_pdf/',
   ),
 ];
-
-class BookIndex {
-  final String id;
-  final String title;
-  final String author;
-  final String language;
-  final String version;
-  final String source;
-  final bool translated;
-  final String filePath;
-
-  const BookIndex({
-    required this.id,
-    required this.title,
-    required this.author,
-    required this.language,
-    required this.version,
-    required this.source,
-    required this.translated,
-    required this.filePath,
-  });
-}
