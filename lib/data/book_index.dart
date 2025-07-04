@@ -1,10 +1,8 @@
-// lib/data/book_index.dart
-
-/// Contains mapping and index information of integrated homeopathic books
-/// Used to reference translated rubrics, raw PDFs, and source attribution
+// Contains mapping and index information of integrated homeopathic books.
+// Used to reference translated rubrics, raw PDFs, and source attribution.
 
 final List<BookIndex> bookIndexList = [
-  BookIndex(
+  const BookIndex(
     id: 'k_boenninghausen',
     title: 'Boenninghausen’s Therapeutic Pocket Book',
     author: 'C.M.F. Boenninghausen',
@@ -14,7 +12,7 @@ final List<BookIndex> bookIndexList = [
     translated: true,
     filePath: 'assets/books/translated_json/boenninghausen.json',
   ),
-  BookIndex(
+  const BookIndex(
     id: 'k_lippe_keynotes',
     title: 'Keynotes of the Homoeopathic Materia Medica',
     author: 'Dr. Adolph von Lippe',
@@ -24,7 +22,7 @@ final List<BookIndex> bookIndexList = [
     translated: true,
     filePath: 'assets/books/translated_json/lippe_keynotes.json',
   ),
-  BookIndex(
+  const BookIndex(
     id: 'k_f_master_bedside',
     title: 'Bedside Clinical Prescribing',
     author: 'Dr. Farokh Master',
@@ -34,7 +32,7 @@ final List<BookIndex> bookIndexList = [
     translated: true,
     filePath: 'assets/books/translated_json/f_master_bedside_bn.json',
   ),
-  BookIndex(
+  const BookIndex(
     id: 'raw_pdf_store',
     title: 'Unprocessed Books',
     author: 'Various',
