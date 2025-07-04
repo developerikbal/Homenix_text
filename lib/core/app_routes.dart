@@ -79,12 +79,11 @@ class AppRoutes {
     inputSymptoms: (_) => const PatientInputScreen(),
     searchRemedy: (_) => const RemedySearchScreen(),
 
-    // RemedyDetailScreen
     remedyDetail: (_) => RemedyDetailScreen(
       remedy: RemedyModel(
         id: 'demo',
         name: 'Demo Remedy',
-        badgeType: RemedyBadgeType.values.first, // enum-এর প্রথম ভ্যালু
+        badgeType: RemedyBadgeType.values.first,
         createdAt: DateTime.now(),
         grade: 0,
         keynote: '',
@@ -120,8 +119,7 @@ class AppRoutes {
     bookDetail: (_) => BookDetailScreen(
       book: BookModel(
         id: 'demoBook',
-        // শুধু বিদ্যমান ও প্রয়োজনীয় ফিল্ড দিন
-        name: 'Demo Book',
+        bookId: 'demoBook', // ✅ bookId required & used
         addedBy: 'admin',
         author: 'Anonymous',
         category: 'General',
