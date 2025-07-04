@@ -1,8 +1,7 @@
-// File: lib/theme/dark_theme.dart
 import 'package:flutter/material.dart';
 
-/// Dark Theme configuration for Homeonix.
-/// এই থিমটি স্বয়ংক্রিয়ভাবে অ্যাপের dark mode চালু হলে প্রয়োগ হয়।
+// Dark Theme configuration for Homeonix.
+// এই থিমটি স্বয়ংক্রিয়ভাবে অ্যাপের dark mode চালু হলে প্রয়োগ হয়।
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
@@ -100,7 +99,7 @@ final ThemeData darkTheme = ThemeData(
     color: Color(0xFF1DB954),
   ),
 
-  dialogTheme: const DialogTheme(
+  dialogTheme: const DialogThemeData(
     backgroundColor: Color(0xFF1E1E1E),
     titleTextStyle: TextStyle(
       fontSize: 20,
